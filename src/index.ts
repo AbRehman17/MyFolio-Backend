@@ -19,7 +19,10 @@ const app = express()
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: process.env.FRONTEND_URL || [
+      'http://localhost:3000',
+      'https://your-frontend.vercel.app',
+    ],
     credentials: true,
   }),
 )
@@ -33,5 +36,9 @@ app.use('/api/experience', experienceRoutes)
 
 app.get('/', (_req, res) => res.send('API is running'))
 
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+// ✅ REMOVE these lines:
+// const PORT = process.env.PORT || 5000
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
+// ✅ ADD this instead (export for Vercel):
+export default app
