@@ -21,7 +21,7 @@ app.use(
   cors({
     origin: process.env.FRONTEND_URL || [
       'http://localhost:3000',
-      'https://your-frontend.vercel.app',
+      'https://my-folio-frontend-1790l80uf-abdurehmans-projects-9f85669a.vercel.app',
     ],
     credentials: true,
   }),
